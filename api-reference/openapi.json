@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://sandbox-gateway.service-canvi.com.br:8080"
     }
   ],
   "security": [
@@ -118,6 +118,44 @@
           },
           "400": {
             "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bt/token":{
+      "post": {
+        "description": "Gerar token",
+        "requestBody": {
+          "description": "Endpoint de gerar token",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPlant"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Token resposta",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro de gerar token",
             "content": {
               "application/json": {
                 "schema": {
