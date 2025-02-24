@@ -137,7 +137,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/credencial_request"
               }
             }
           },
@@ -149,7 +149,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/credencial_response"
                 }
               }
             }
@@ -170,6 +170,36 @@
   },
   "components": {
     "schemas": {
+      "credencial_request":{
+        "type": "object",
+        "properties":{
+          "client_id": {
+            "type": "string",
+            "example": "10A52FF6ECEFAF"
+          },
+          "private_key": {
+            "type": "string",
+            "example": "101A9DF6ECE10A52FF90C2FAF3B1077A3F7260F9FF6101A9DF"
+          }
+        }
+      },
+      "credencial_response":{
+        "type": "object",
+        "properties":{
+          "code": {
+            "type": "integer",
+            "example": 200
+          },
+          "mensagem": {
+            "type": "string",
+            "example": "Logado com sucesso!"
+          },
+          "token": {
+            "type": "string",
+            "example": "1234555566616161616161616171875187158715"
+          }
+        }
+      },
       "Plant": {
         "required": [
           "name"
